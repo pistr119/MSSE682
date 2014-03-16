@@ -1,0 +1,39 @@
+﻿@model OLAPManager.Models.Domain.RequestBug
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <title>Report Bug</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary() //p38, Freeman
+        //borrowed from ASP.NET MVC5 PRO by Adam Freeman p30-31
+        <p>User Name:  @Html.TextBoxFor(x => x.SubmittedByUser.UserName)</p>  //to be replaced by windows authentication
+        <p>Business Reason:  @Html.TextAreaFor(x => x.Description)</p>
+        //other business-specific fields will be added!
+        <p>@Html.DropDownListFor(x=>x.BugType,new[] {
+            new SelectListItem() {Text="Non Reconciliation", Value=Convert.ToString(1)  },
+            new SelectListItem() {Text="Missing Attribute", Value=Convert.ToString(2)  },
+            new SelectListItem() {Text="Error Message", Value=Convert.ToString(3)  },
+            new SelectListItem() {Text="Other", Value=Convert.ToString(0)  },
+            } ,"Choose one", new{ @class="form-control"})
+            
+         
+        </p>
+        <!---<input data-val="true" data-val-requires="Please provide explanation" id="Description" name="Description" type="text" value=""/> -->
+        <div class="btn btn-success">
+            <input type="submit" value="Report Bug" />
+
+        </div>
+    }
+</body>
+</html>

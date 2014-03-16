@@ -1,0 +1,32 @@
+﻿@model OLAPManager.Models.Domain.RequestChange
+
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css" />
+    <title>Request Change</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary() //p38, Freeman
+        //borrowed from ASP.NET MVC5 PRO by Adam Freeman p30-31
+        <p>User Name:  @Html.TextBoxFor(x => x.SubmittedByUser.UserName)</p>  //to be replaced by windows authentication
+        <p>Description:  @Html.TextAreaFor(x => x.Description)</p>
+        //other business-specific fields will be added!
+        <p>Business Need:  @Html.TextAreaFor(x => x.BusinessNeed)</p>
+        <!---<input data-val="true" data-val-requires="Please provide explanation" id="Description" name="Description" type="text" value=""/> -->
+        <div class="btn btn-success">
+            <input type="submit" value="Submit Request" />
+
+        </div>
+    }
+</body>
+</html>

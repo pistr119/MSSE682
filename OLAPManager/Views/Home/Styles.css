@@ -1,0 +1,44 @@
+﻿body {
+
+}
+
+.field-validation-error{
+    color:  #f00;
+}
+
+.field-validation-valid {
+    display:none;
+}
+
+.input-validation-error {
+    border: 1px solid #f00;
+    background-color:#fee;
+}
+
+.validation-summary-errors {
+    font-weight:  bold;
+    color:  #f00;
+}
+
+.validation-summary-valid{
+    display: none;
+}
+
+about{
+    border: 1px solid #f00;
+}
+
+nav{
+	width:30%;
+	float:right;
+	
+}
+
+footer {
+	width:80%;
+	background-color:black;
+	color:white;
+	margin-right:auto;
+	margin-left:auto;
+	height:50px;
+}

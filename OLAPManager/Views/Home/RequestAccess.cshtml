@@ -1,0 +1,66 @@
+﻿@model OLAPManager.Models.Domain.RequestAccess
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Styles.css"/>
+    <title>Request Access</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary() //p38, Freeman
+        //borrowed from ASP.NET MVC5 PRO by Adam Freeman p30-31
+        <p>User Name:  @Html.TextBoxFor(x=>x.SubmittedByUser.UserName)</p>  //to be replaced by windows authentication
+        <p>Business Reason:  @Html.TextAreaFor(x => x.Description)</p>
+        
+        
+        <div class="form-group">
+            <label>Market to Access</label>
+            @Html.DropDownListFor(x=>x.MarketAccess,new[] {
+            new SelectListItem() {Text="Global", Value=Convert.ToString(0)  },
+            new SelectListItem() {Text="North America", Value=Convert.ToString(1)  },
+            new SelectListItem() {Text="EMEA", Value=Convert.ToString(2)  },
+            new SelectListItem() {Text="APAC", Value=Convert.ToString(3)  },
+            new SelectListItem() {Text="Greater China", Value=Convert.ToString(4)  },
+            new SelectListItem() {Text="LATAM", Value=Convert.ToString(5)  },        
+            
+            
+            } ,"Choose one", new{ @class="form-control"})
+            
+         
+        
+        </div>
+        <br />
+        <div class="form-group">
+            <label>Product To Access</label>
+            @Html.DropDownListFor(x=>x.ProductAccess,new[] {
+            new SelectListItem() {Text="Global", Value=Convert.ToString(0)  },
+            new SelectListItem() {Text="Product 1", Value=Convert.ToString(1)  },
+            new SelectListItem() {Text="Product 2", Value=Convert.ToString(2)  },
+            new SelectListItem() {Text="Product 3", Value=Convert.ToString(3)  },
+   
+            
+            
+            } ,"Choose one", new{ @class="form-control"})
+            
+         
+        </div>
+        
+ 
+    <br />
+ 
+        <!---<input data-val="true" data-val-requires="Please provide explanation" id="Description" name="Description" type="text" value=""/> -->
+    <div class="btn btn-success">
+      <input type="submit" value="Submit Request" /> 
+         
+    </div>
+    }
+</body>
+</html>

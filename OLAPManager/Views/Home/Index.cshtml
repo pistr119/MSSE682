@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div class="media-body"> 
+        MAIN MENU 
+        <ul>
+            <li><a href="#">Home</a></li>
+
+            <!---<li><a href="#">Submit OLAP Access Request</a></li>-->
+            <li>@Html.ActionLink("Request Access",  "RequestAccess")</li> 
+            <li>@Html.ActionLink("Report Bug",      "ReportBug")</li> 
+            <li>@Html.ActionLink("Request Change",  "RequestChange")</li> 
+  
+
+        </ul>
+    </div>
+
+
+    <footer>
+
+        <nav>
+            <ul>
+                <li>@Html.ActionLink("About", "About")</li>
+                <li>@Html.ActionLink("Contact", "Contact")</li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
