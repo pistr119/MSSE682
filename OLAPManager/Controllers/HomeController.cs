@@ -41,7 +41,7 @@ namespace OLAPManager.Controllers
                 return View();
             }
         }
-
+        //
         [HttpGet]
         public ViewResult ReportBug()
         {
